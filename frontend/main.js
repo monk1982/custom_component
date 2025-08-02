@@ -16,6 +16,18 @@ function getMobileOS(){
     }
 }
 
+function takePicture() {
+    let context = canvas.getContext('2d');
+    width = video.srcObject.getVideoTracks()[0].getSettings().width;
+    height = video.srcObject.getVideoTracks()[0].getSettings().height;
+    canvas.width = width;
+    canvas.height = height;
+    context.drawImage(video, 0, 0, width, height);      
+    var data = canvas.toDataURL('image/png');            
+    // sendValue(data);
+    // Streamlit.setComponentValue(data);  
+    alert('Click !!')          
+}
 
 function onRender(event) {
     // Only run the render code the first time the component is loaded.
@@ -45,22 +57,11 @@ function onRender(event) {
         })
         .catch(function(err) {
             console.log("An error occurred: " + err);
-        });
-
-        function takePicture() {
-            let context = canvas.getContext('2d');
-            width = video.srcObject.getVideoTracks()[0].getSettings().width;
-            height = video.srcObject.getVideoTracks()[0].getSettings().height;
-            canvas.width = width;
-            canvas.height = height;
-            context.drawImage(video, 0, 0, width, height);      
-            var data = canvas.toDataURL('image/png');            
-            sendValue(data);
-        }      
+        });              
         
         Streamlit.setFrameHeight(height);
         
-        video.addEventListener('click', takePicture);
+        //video.addEventListener('click', takePicture);
         window.rendered = true
     }
 }
