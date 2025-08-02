@@ -15,7 +15,10 @@ function onRender(event) {
         video.setAttribute('width', '100%');
         video.setAttribute('height', 'auto');
         
-        const constraints =  { facingMode: 'environment', advanced : [{focusMode: "continuous"}]};
+        const constraints =  { facingMode: 'environment', advanced : [{focusMode: "continuous"}]}; // 'environment' hoặc 'user' cho camera trước
+        /*navigator.permissions.query({ name: 'camera' }).then((result) => {
+            console.log(result.state); // 'granted', 'denied', or 'prompt'
+        });*/
         navigator.mediaDevices.getUserMedia({ video: constraints })
         .then(function(stream) {
             video.srcObject = stream;
