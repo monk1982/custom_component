@@ -3,6 +3,20 @@
 * the component is initially loaded, and then again every time the
 * component gets new data from Python.
 **/
+function getMobileOS(){
+    const ua = navigator.userAgent;
+
+    if (/android/i.test(ua)) {
+        return "Android";
+    } else if (/iPad|iPhone|iPod/.test(ua) || 
+                (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)) {
+        return "iOS";
+    } else {
+        return "Other";
+    }
+}
+
+
 function onRender(event) {
     // Only run the render code the first time the component is loaded.
     if (!window.rendered) {
@@ -14,6 +28,9 @@ function onRender(event) {
 
         video.setAttribute('width', '100%');
         video.setAttribute('height', 'auto');
+
+        // Check os to add playsinline
+        if (getMobileOS()=='iOS') video.setAttribute('playsinline', 'True');
         
         const constraints =  { facingMode: 'environment', advanced : [{focusMode: "continuous"}]}; // 'environment' hoặc 'user' cho camera trước
         /*navigator.permissions.query({ name: 'camera' }).then((result) => {
