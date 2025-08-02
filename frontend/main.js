@@ -31,8 +31,7 @@ function onRender(event) {
 
         // Check os to add playsinline
         if (getMobileOS()=='iOS'){
-            video.setAttribute('playsinline', '');    
-            console.log(getMobileOS());
+            video.setAttribute('playsinline', '');                
         }
         
         const constraints =  { facingMode: 'environment', advanced : [{focusMode: "continuous"}]}; // 'environment' hoặc 'user' cho camera trước
