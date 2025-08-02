@@ -30,7 +30,10 @@ function onRender(event) {
         video.setAttribute('height', 'auto');
 
         // Check os to add playsinline
-        if (getMobileOS()=='iOS') video.setAttribute('playsinline', 'True');
+        if (getMobileOS()=='iOS'){
+            video.setAttribute('playsinline', '');    
+            console.log(getMobileOS());
+        }
         
         const constraints =  { facingMode: 'environment', advanced : [{focusMode: "continuous"}]}; // 'environment' hoặc 'user' cho camera trước
         /*navigator.permissions.query({ name: 'camera' }).then((result) => {
