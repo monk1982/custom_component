@@ -43,6 +43,7 @@ function changefacingMode(){
         currentFacingMode ="environment"
     }    
     alert(currentFacingMode)
+    onRender(currentFacingMode)
 }
 
 function onRender(event,currentFacingMode) {
