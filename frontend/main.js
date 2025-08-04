@@ -16,6 +16,14 @@ function getMobileOS(){
     }
 }
 
+function handleClick() {
+    const sound = document.getElementById("cameraSound");
+    sound.play();
+    alert("Bạn đã click vào nút!");
+}
+
+let currentFacingMode = "environment";
+
 function takePicture() {
     let context = canvas.getContext('2d');
     width = video.srcObject.getVideoTracks()[0].getSettings().width;
@@ -28,7 +36,15 @@ function takePicture() {
     Streamlit.setComponentValue(data);              
 }
 
-function onRender(event) {
+function changefacingMode(){
+    if (currentFacingMode == "environment"){
+        currentFacingMode ="user"
+    }else {
+        currentFacingMode ="environment"
+    }    
+}
+
+function onRender(event,currentFacingMode) {
     // Only run the render code the first time the component is loaded.
     if (!window.rendered) {
         // You most likely want to get the data passed in like this
@@ -36,6 +52,7 @@ function onRender(event) {
             
         let video = document.getElementById('video');
         let canvas = document.getElementById('canvas');
+        let change_cam = document.getElementById('change_cam');
 
         video.setAttribute('width', '100%');
         video.setAttribute('height', 'auto');
@@ -43,9 +60,9 @@ function onRender(event) {
         // Check os to add playsinline
         if (getMobileOS()=='iOS'){
             video.setAttribute('playsinline', '');                
-        }
-        
-        const constraints =  { facingMode: 'environment', advanced : [{focusMode: "continuous"}]}; // 'environment' hoặc 'user' cho camera trước
+        }                        
+
+        const constraints =  { facingMode: currentFacingMode, advanced : [{focusMode: "continuous"}]}; // 'environment' hoặc 'user' cho camera trước
         /*navigator.permissions.query({ name: 'camera' }).then((result) => {
             console.log(result.state); // 'granted', 'denied', or 'prompt'
         });*/

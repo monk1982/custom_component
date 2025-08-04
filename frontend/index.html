@@ -7,12 +7,19 @@
     <title>streamlit-camera-input-live</title>
     <script src="./streamlit-component-lib.js"></script>
     <script src="./main.js"></script>
-    <!--link rel="stylesheet" href="./style.css" / -->
+    <link rel="stylesheet" href="./style.css" />
 </head>
-<body>    
-    <div id="container">
+<body style="background-color: black;margin: 0px 0px 0px 0px;">    
+    <div id="container" >        
         <video id="video" autoplay="true" onclick="takePicture()"></video>
         <canvas id="canvas" style="display:none" ></canvas>
-    </div>    
+        <audio id="cameraSound" src="./take_pic.mp3" preload="auto"></audio>        
+        <div class="circle-button" onclick="handleClick()" >
+            <div class="inner-circle"></div>
+        </div>
+        <div id="change_cam" class="arrow-button" onclick="changefacingMode()">
+           <img src="./change_cam.png" alt="Đổi Camera" class="arrow-icon">
+        </div>
+    </div>            
 </body>
 </html>

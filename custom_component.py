@@ -14,7 +14,7 @@ _component_func = components.declare_component(
 )
 
 def back_camera_input(
-        height: int = 450,
+        height: int = 600,
         width: int = 500,
         key: Optional[str] = None,    
     ) -> Optional[BytesIO]:
