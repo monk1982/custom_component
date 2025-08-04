@@ -24,9 +24,8 @@ function takePicture() {
     canvas.height = height;
     context.drawImage(video, 0, 0, width, height);      
     var data = canvas.toDataURL('image/png');            
-    sendValue(data);
-    // Streamlit.setComponentValue(data);  
-    alert('Click !!')          
+    // sendValue(data);
+    Streamlit.setComponentValue(data);              
 }
 
 function onRender(event) {
