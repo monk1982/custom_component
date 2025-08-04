@@ -43,13 +43,26 @@ function changefacingMode(){
         currentFacingMode ="environment"
     }    
     alert(currentFacingMode)
-    const video = document.getElementById('video');
-    const oldStream = video.srcObject
+    let video = document.getElementById('video');
+    let oldStream = video.srcObject
     if (oldStream) {
         oldStream.getTracks().forEach(track => track.stop());
     }
-    onRender(currentFacingMode)
+    start_CAM(currentFacingMode)
 }
+
+function start_CAM(currentFacingMode){
+    const constraints =  { facingMode: currentFacingMode, advanced : [{focusMode: "continuous"}]}; // 'environment' hoặc 'user' cho camera trước
+    navigator.mediaDevices.getUserMedia({ video: constraints })
+    .then(function(stream) {
+        video.srcObject = stream;
+        // video.play();
+    })
+    .catch(function(err) {
+        console.log("An error occurred: " + err);
+    });
+}
+
 
 function onRender(event,currentFacingMode) {
     // Only run the render code the first time the component is loaded.
@@ -67,19 +80,19 @@ function onRender(event,currentFacingMode) {
         if (getMobileOS()=='iOS'){
             video.setAttribute('playsinline', '');                
         }                        
-
-        const constraints =  { facingMode: currentFacingMode, advanced : [{focusMode: "continuous"}]}; // 'environment' hoặc 'user' cho camera trước
+        start_CAM(currentFacingMode)
+        // const constraints =  { facingMode: currentFacingMode, advanced : [{focusMode: "continuous"}]}; // 'environment' hoặc 'user' cho camera trước
         /*navigator.permissions.query({ name: 'camera' }).then((result) => {
             console.log(result.state); // 'granted', 'denied', or 'prompt'
         });*/
-        navigator.mediaDevices.getUserMedia({ video: constraints })
+        /*navigator.mediaDevices.getUserMedia({ video: constraints })
         .then(function(stream) {
             video.srcObject = stream;
             video.play();
         })
         .catch(function(err) {
             console.log("An error occurred: " + err);
-        });              
+        });*/              
         
         Streamlit.setFrameHeight(height);
         
