@@ -9,4 +9,4 @@ else:
     img = None
 
 if img is not None:
-    st.image(img, caption="Ảnh bạn vừa chụp", use_column_width=True)
+    st.image(img, caption="Ảnh bạn vừa chụp", use_container_width=True)
