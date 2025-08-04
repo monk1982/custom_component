@@ -11,10 +11,10 @@
 </head>
 <body style="background-color: black;margin: 0px 0px 0px 0px;">    
     <div id="container" >        
-        <video id="video" autoplay="true" onclick="takePicture()"></video>
+        <video id="video" autoplay="true"></video>
         <canvas id="canvas" style="display:none" ></canvas>
         <audio id="cameraSound" src="./take_pic.mp3" preload="auto"></audio>        
-        <div class="circle-button" onclick="handleClick()" >
+        <div class="circle-button" onclick="takePicture()" >
             <div class="inner-circle"></div>
         </div>
         <div id="change_cam" class="arrow-button" onclick="changefacingMode()">

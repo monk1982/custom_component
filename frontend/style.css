@@ -1,15 +1,8 @@
-.my_camera {    
-    width: 100%;
-    height: 100%;
-    margin: 0px 0px 0px 0px;
-    background-color: black;
-}
-
 video {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100vw;
+    width: 100vw;   
     height: 100vh;
     object-fit: cover;
     z-index: 0; /* nằm dưới */
@@ -18,11 +11,11 @@ video {
 /* Nút biểu tượng chụp ảnh ở giữa */
 .circle-button {
     position: absolute; 
-    bottom: 20px;   
+    bottom: 10px;   
     left: 50%;
     transform: translateX(-50%);
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
     background-color: black;
     border: 4px solid white;
@@ -38,8 +31,8 @@ video {
 }
 
 .inner-circle {
-    width: 90px;
-    height: 90px;
+    width: 70px;
+    height: 70px;
     border-radius: 50%;
     background-color: white;
 }
@@ -47,10 +40,10 @@ video {
 /* Nút biểu tượng mũi tên ở góc dưới bên phải */
 .arrow-button {
     position: absolute;
-    bottom: 35px;
+    bottom: 20px;
     right: 20px;
-    width: 60px;
-    height: 50px;
+    width: 40px;
+    height: 30px;
     border-radius: 20%;
     background-color: white;
     border: 0px solid black;

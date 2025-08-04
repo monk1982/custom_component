@@ -16,13 +16,8 @@ function getMobileOS(){
     }
 }
 
-function handleClick() {
-    const sound = document.getElementById("cameraSound");
-    sound.play();
-    alert("Bạn đã click vào nút!");
-}
-
 let currentFacingMode = "environment";
+start_CAM(currentFacingMode)
 
 function takePicture() {
     let context = canvas.getContext('2d');
@@ -33,6 +28,8 @@ function takePicture() {
     context.drawImage(video, 0, 0, width, height);      
     var data = canvas.toDataURL('image/png');            
     // sendValue(data);
+    const sound = document.getElementById("cameraSound");
+    sound.play();
     Streamlit.setComponentValue(data);              
 }
 
@@ -41,8 +38,7 @@ function changefacingMode(){
         currentFacingMode ="user"
     }else {
         currentFacingMode ="environment"
-    }    
-    alert(currentFacingMode)
+    }        
     let video = document.getElementById('video');
     let oldStream = video.srcObject
     if (oldStream) {
@@ -79,7 +75,8 @@ function onRender(event,currentFacingMode) {
         // Check os to add playsinline
         if (getMobileOS()=='iOS'){
             video.setAttribute('playsinline', '');                
-        }                        
+        }
+
         start_CAM(currentFacingMode)
         // const constraints =  { facingMode: currentFacingMode, advanced : [{focusMode: "continuous"}]}; // 'environment' hoặc 'user' cho camera trước
         /*navigator.permissions.query({ name: 'camera' }).then((result) => {
@@ -102,7 +99,7 @@ function onRender(event,currentFacingMode) {
 }
   
 // Render the component whenever python send a "render event"
-Streamlit.events.addEventListener(Streamlit.RENDER_EVENT, onRender)
+ Streamlit.events.addEventListener(Streamlit.RENDER_EVENT, onRender)
 // Tell Streamlit that the component is ready to receive events
 Streamlit.setComponentReady()
 // Don't actually need to display anything, so set the height to 0
