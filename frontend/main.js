@@ -17,7 +17,7 @@ function getMobileOS(){
 }
 
 let currentFacingMode = "environment";
-//start_CAM(currentFacingMode)
+start_CAM(currentFacingMode)
 
 function takePicture() {
     let context = canvas.getContext('2d');
