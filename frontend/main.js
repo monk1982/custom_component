@@ -16,7 +16,7 @@ function getMobileOS(){
     }
 }
 
-let currentFacingMode = "environment";
+let currentFacingMode = "user";
 // start_CAM(currentFacingMode)
 
 function takePicture() {
@@ -77,7 +77,7 @@ function onRender(event,currentFacingMode) {
             video.setAttribute('playsinline', '');                
         }
 
-        start_CAM(currentFacingMode)
+        changefacingMode()
         // const constraints =  { facingMode: currentFacingMode, advanced : [{focusMode: "continuous"}]}; // 'environment' hoặc 'user' cho camera trước
         /*navigator.permissions.query({ name: 'camera' }).then((result) => {
             console.log(result.state); // 'granted', 'denied', or 'prompt'
