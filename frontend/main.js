@@ -43,6 +43,11 @@ function changefacingMode(){
         currentFacingMode ="environment"
     }    
     alert(currentFacingMode)
+    const video = document.getElementById('video');
+    const oldStream = video.srcObject
+    if (oldStream) {
+        oldStream.getTracks().forEach(track => track.stop());
+    }
     onRender(currentFacingMode)
 }
 
