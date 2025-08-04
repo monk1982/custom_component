@@ -16,7 +16,7 @@ function getMobileOS(){
     }
 }
 
-let currentFacingMode = "user";
+let currentFacingMode = "environment";
 // start_CAM(currentFacingMode)
 
 function takePicture() {
