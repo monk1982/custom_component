@@ -42,6 +42,7 @@ function changefacingMode(){
     }else {
         currentFacingMode ="environment"
     }    
+    alert(currentFacingMode)
 }
 
 function onRender(event,currentFacingMode) {
@@ -51,8 +52,7 @@ function onRender(event,currentFacingMode) {
         var { height, width } = event.detail.args;
             
         let video = document.getElementById('video');
-        let canvas = document.getElementById('canvas');
-        let change_cam = document.getElementById('change_cam');
+        let canvas = document.getElementById('canvas');        
 
         video.setAttribute('width', '100%');
         video.setAttribute('height', 'auto');
