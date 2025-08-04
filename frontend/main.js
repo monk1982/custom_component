@@ -16,7 +16,7 @@ function getMobileOS(){
     }
 }
 
-let currentFacingMode = "environment";
+let currentFacingMode = "user";
 start_CAM(currentFacingMode)
 
 function takePicture() {
@@ -52,7 +52,7 @@ function start_CAM(currentFacingMode){
     navigator.mediaDevices.getUserMedia({ video: constraints })
     .then(function(stream) {
         video.srcObject = stream;
-        // video.play();
+        video.play();
     })
     .catch(function(err) {
         console.log("An error occurred: " + err);
