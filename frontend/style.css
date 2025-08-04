@@ -14,8 +14,8 @@ video {
     bottom: 10px;   
     left: 50%;
     transform: translateX(-50%);
-    width: 80px;
-    height: 80px;
+    width: 70px;
+    height: 70px;
     border-radius: 50%;
     background-color: black;
     border: 4px solid white;
@@ -31,8 +31,8 @@ video {
 }
 
 .inner-circle {
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     background-color: white;
 }
