@@ -36,13 +36,10 @@ def back_camera_input(
 
         return component_value
 
-def main():
-    st.write("## Example")
-
-    image = back_camera_input()
-
-    if image is not None:
-        st.image(image)
-
-if __name__ == "__main__":
-    main()
+#def main():
+#    st.write("## Example")
+#    image = back_camera_input()
+#    if image is not None:
+#        st.image(image)
+#if __name__ == "__main__":
+#    main()
